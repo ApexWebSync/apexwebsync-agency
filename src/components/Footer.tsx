@@ -1,8 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, MessageCircle, MapPin, Database, Cloud, Sparkles, Lock } from 'lucide-react';
+import { getAllSiteSettings } from '@/lib/db';
 
-export default function Footer() {
+export default async function Footer() {
+  const settings = await getAllSiteSettings();
+  
+  const contactEmail = settings.contact_email || 'apexwebsync@gmail.com';
+  const whatsappNumber = settings.whatsapp_number || '+91 98765 43210';
+  const contactPhone = settings.contact_phone || whatsappNumber;
+  const waClean = whatsappNumber.replace(/[^0-9]/g, '');
+  const agencyLocation = settings.agency_location || 'India Tech Hub • Serving Pan-India & Global Clients';
+
   return (
     <footer className="bg-[#0b1120] text-slate-300 border-t border-slate-800 pt-16 pb-12 relative overflow-hidden">
       {/* Subtle Glow */}
@@ -42,24 +51,24 @@ export default function Footer() {
             <div className="mt-5 space-y-2 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                <a href="mailto:apexwebsync@gmail.com" className="hover:text-cyan-400 font-mono text-white">
-                  apexwebsync@gmail.com
+                <a href={`mailto:${contactEmail}`} className="hover:text-cyan-400 font-mono text-white">
+                  {contactEmail}
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <a
-                  href="https://wa.me/919876543210?text=Hello%20ApexWebSync"
+                  href={`https://wa.me/${waClean}?text=Hello%20ApexWebSync`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-emerald-400 text-slate-200"
                 >
-                  WhatsApp: +91 98765 43210
+                  WhatsApp: {contactPhone}
                 </a>
               </div>
               <div className="flex items-center gap-2 text-slate-400">
                 <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                <span>India Tech Hub &bull; Serving Pan-India &amp; Global Clients</span>
+                <span>{agencyLocation}</span>
               </div>
             </div>
 

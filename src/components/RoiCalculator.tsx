@@ -17,10 +17,8 @@ export default function RoiCalculator() {
   const trafficMultiplier = 2.8; // +180% organic SEO lift
   const crMultiplier = 1.6; // +60% conversion rate from Next.js sub-second speed & UX
 
-  const isNewSite = traffic === 0;
-  const projectedTraffic = traffic > 0 ? Math.round(traffic * trafficMultiplier) : (dealValue > 0 ? 1200 : 0);
-  const effectiveCr = conversionRate > 0 ? conversionRate : 1.5;
-  const projectedCr = Math.min(6.5, Number((effectiveCr * crMultiplier).toFixed(1)));
+  const projectedTraffic = traffic * trafficMultiplier;
+  const projectedCr = Math.min(6.5, Number((conversionRate * crMultiplier).toFixed(1)));
   const projectedMonthlyLeads = Math.round(projectedTraffic * (projectedCr / 100));
   const projectedMonthlyRevenue = projectedMonthlyLeads * dealValue;
 
@@ -194,16 +192,16 @@ export default function RoiCalculator() {
                   <span className="font-mono font-bold text-white">
                     {Math.round(projectedTraffic).toLocaleString('en-IN')}{' '}
                     <span className="text-cyan-400 text-xs">
-                      {isNewSite ? (dealValue > 0 ? '(New Launch)' : '(+180%)') : '(+180%)'}
+                      {traffic > 0 ? '(+180%)' : ''}
                     </span>
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-slate-400">Projected Conversion Rate:</span>
                   <span className="font-mono font-bold text-white">
-                    {conversionRate === 0 && dealValue === 0 ? '0.0%' : `${projectedCr.toFixed(1)}%`}{' '}
+                    {projectedCr.toFixed(1)}%{' '}
                     <span className="text-cyan-400 text-xs">
-                      {conversionRate > 0 ? '(+60%)' : '(Optimized UX)'}
+                      {conversionRate > 0 ? '(+60%)' : ''}
                     </span>
                   </span>
                 </div>

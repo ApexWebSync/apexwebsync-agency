@@ -1,5 +1,6 @@
 import ContactSection from '@/components/ContactSection';
 import { MessageSquare, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { getAllSiteSettings } from '@/lib/db';
 
 export const metadata = {
   title: 'Contact & Consultation | ApexWebSync India',
@@ -7,7 +8,12 @@ export const metadata = {
     'Schedule a consultation with ApexWebSync. Contact us at apexwebsync@gmail.com or connect directly via WhatsApp.',
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getAllSiteSettings();
+  const contactEmail = settings.contact_email || 'apexwebsync@gmail.com';
+  const whatsappNumber = settings.whatsapp_number || '+91 98765 43210';
+  const waClean = whatsappNumber.replace(/[^0-9]/g, '');
+
   return (
     <div className="pt-28 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
@@ -25,14 +31,14 @@ export default function ContactPage() {
         {/* Quick Contact Buttons */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="mailto:apexwebsync@gmail.com"
+            href={`mailto:${contactEmail}`}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-300 text-slate-800 hover:border-[#0284c7] hover:text-[#0284c7] text-xs font-semibold shadow-sm transition-all"
           >
             <Mail className="w-4 h-4 text-[#0284c7]" />
-            apexwebsync@gmail.com
+            {contactEmail}
           </a>
           <a
-            href="https://wa.me/919876543210?text=Hello%20ApexWebSync%20Team"
+            href={`https://wa.me/${waClean}?text=Hello%20ApexWebSync%20Team`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 hover:bg-emerald-100 text-xs font-semibold shadow-sm transition-all"

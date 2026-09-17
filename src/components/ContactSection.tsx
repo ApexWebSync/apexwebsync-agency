@@ -1,9 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2, UploadCloud, MessageSquare, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 export default function ContactSection() {
+  const [settings, setSettings] = useState<any>({});
+  
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.settings) setSettings(data.settings);
+      })
+      .catch(() => {});
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -93,10 +104,10 @@ export default function ContactSection() {
                   <div>
                     <div className="text-xs text-slate-500 font-medium uppercase tracking-wider">Email Us Directly</div>
                     <a
-                      href="mailto:apexwebsync@gmail.com"
+                      href={`mailto:${settings.contact_email || 'apexwebsync@gmail.com'}`}
                       className="text-slate-900 font-bold text-sm sm:text-base hover:text-[#0284c7] transition-colors font-mono"
                     >
-                      apexwebsync@gmail.com
+                      {settings.contact_email || 'apexwebsync@gmail.com'}
                     </a>
                   </div>
                 </div>
@@ -108,12 +119,12 @@ export default function ContactSection() {
                   <div>
                     <div className="text-xs text-slate-500 font-medium uppercase tracking-wider">WhatsApp Direct (+91)</div>
                     <a
-                      href="https://wa.me/919876543210?text=Hello%20ApexWebSync%20Team"
+                      href={`https://wa.me/${(settings.whatsapp_number || '919876543210').replace(/[^0-9]/g, '')}?text=Hello%20ApexWebSync%20Team`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-900 font-bold text-sm sm:text-base hover:text-emerald-600 transition-colors"
                     >
-                      +91 98765 43210
+                      {settings.contact_phone || settings.whatsapp_number || '+91 98765 43210'}
                     </a>
                   </div>
                 </div>
@@ -123,9 +134,9 @@ export default function ContactSection() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wider">India Tech Hub</div>
+                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wider">Agency Location</div>
                     <div className="text-slate-900 font-bold text-sm sm:text-base">
-                      Bengaluru / Pan-India &bull; Global Delivery
+                      {settings.agency_location || 'Bengaluru / Pan-India • Global Delivery'}
                     </div>
                   </div>
                 </div>

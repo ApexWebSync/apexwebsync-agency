@@ -3,6 +3,8 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://apexwebsync.vercel.app'),
   title: 'ApexWebSync | Web Development & SEO Ranking Agency India | Build Develop and Grow',
