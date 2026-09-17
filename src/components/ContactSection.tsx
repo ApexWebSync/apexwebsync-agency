@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Loader2, UploadCloud, MessageSquare, Phone, Mail, MapPin } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2, UploadCloud, MessageSquare, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -9,8 +9,8 @@ export default function ContactSection() {
     email: '',
     phone: '',
     website: '',
-    service: 'Full Growth Package (Web Dev + SEO)',
-    budget: '$3,000 - $5,000',
+    service: 'Business Showcase (3–5 Pages)',
+    budget: '₹8,999 – ₹14,999',
     message: '',
   });
 
@@ -55,8 +55,8 @@ export default function ContactSection() {
         email: '',
         phone: '',
         website: '',
-        service: 'Full Growth Package (Web Dev + SEO)',
-        budget: '$3,000 - $5,000',
+        service: 'Business Showcase (3–5 Pages)',
+        budget: '₹8,999 – ₹14,999',
         message: '',
       });
       setFile(null);
@@ -82,7 +82,7 @@ export default function ContactSection() {
                 Let&apos;s Build, Develop and <span className="text-[#00d2ff]">Grow Your Business</span>
               </h2>
               <p className="mt-4 text-slate-300 text-base leading-relaxed">
-                Ready to dominate search rankings and engineer a web application that outpaces the competition? Schedule a consultation or send us your RFP.
+                Ready to dominate search rankings and engineer a web application that outpaces the competition? Schedule a consultation or message our team on WhatsApp.
               </p>
 
               <div className="mt-10 space-y-6">
@@ -92,21 +92,29 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">Email Us Directly</div>
-                    <div className="text-white font-semibold text-sm sm:text-base">
-                      contact@apexwebsync.com
-                    </div>
+                    <a
+                      href="mailto:apexwebsync@gmail.com"
+                      className="text-white font-semibold text-sm sm:text-base hover:text-cyan-400 transition-colors font-mono"
+                    >
+                      apexwebsync@gmail.com
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0b1120] border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
-                    <Phone className="w-5 h-5" />
+                  <div className="w-12 h-12 rounded-2xl bg-[#0b1120] border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                    <MessageCircle className="w-5 h-5 fill-current" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">Discovery Call</div>
-                    <div className="text-white font-semibold text-sm sm:text-base">
-                      Schedule a 30-min strategy review
-                    </div>
+                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">WhatsApp Direct (+91)</div>
+                    <a
+                      href="https://wa.me/919876543210?text=Hello%20ApexWebSync%20Team"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white font-semibold text-sm sm:text-base hover:text-emerald-400 transition-colors"
+                    >
+                      +91 98765 43210
+                    </a>
                   </div>
                 </div>
 
@@ -115,9 +123,9 @@ export default function ContactSection() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">Global Execution</div>
+                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">India Tech Hub</div>
                     <div className="text-white font-semibold text-sm sm:text-base">
-                      Worldwide Client Coverage
+                      Bengaluru / Pan-India &bull; Global Delivery
                     </div>
                   </div>
                 </div>
@@ -129,7 +137,7 @@ export default function ContactSection() {
                 Our Guarantee
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Every project is covered by our Core Web Vitals guarantee and clear milestones. No junior subcontractors—experienced senior engineers only.
+                Every project is covered by our Core Web Vitals guarantee and clear milestones. Senior Indian full-stack engineers only.
               </p>
             </div>
           </div>
@@ -144,7 +152,7 @@ export default function ContactSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Inquiry Received!</h3>
                   <p className="mt-2 text-slate-300 text-sm max-w-md">
-                    Thank you for reaching out to ApexWebSync. Our technical team has received your project details and will follow up with an actionable roadmap within 24 hours.
+                    Thank you for contacting ApexWebSync. Our technical team has received your project details and will follow up with an actionable roadmap within 24 hours.
                   </p>
                   <button
                     onClick={() => setSuccess(false)}
@@ -163,7 +171,7 @@ export default function ContactSection() {
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Alex Morgan"
+                        placeholder="e.g. Rahul Sharma"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
@@ -177,7 +185,7 @@ export default function ContactSection() {
                       <input
                         type="email"
                         required
-                        placeholder="alex@company.com"
+                        placeholder="rahul@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
@@ -192,7 +200,7 @@ export default function ContactSection() {
                       </label>
                       <input
                         type="tel"
-                        placeholder="+1 (555) 019-2834"
+                        placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
@@ -205,7 +213,7 @@ export default function ContactSection() {
                       </label>
                       <input
                         type="text"
-                        placeholder="https://yourcompany.com"
+                        placeholder="https://yourbrand.in"
                         value={formData.website}
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
@@ -223,38 +231,43 @@ export default function ContactSection() {
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400"
                       >
-                        <option>Full Growth Package (Web Dev + SEO)</option>
-                        <option>Custom Next.js Web Development</option>
-                        <option>Dominant Technical & Organic SEO</option>
-                        <option>Speed Optimization & Core Web Vitals</option>
-                        <option>Headless E-Commerce / SaaS Platform</option>
+                        <option>Starter Landing Page (₹3,499 – ₹5,999)</option>
+                        <option>Business Showcase (3–5 Pages) (₹8,999 – ₹14,999)</option>
+                        <option>Appointment &amp; Booking Site (₹11,999 – ₹18,499)</option>
+                        <option>Digital Menu &amp; Direct Ordering (₹9,499 – ₹15,999)</option>
+                        <option>Custom Next.js Web Development (₹24,999 – ₹49,999)</option>
+                        <option>Headless E-Commerce &amp; SaaS (₹44,999 – ₹89,999)</option>
+                        <option>Page 1 Supremacy (SEO) (₹14,999 / mo)</option>
+                        <option>Sub-Second TTFB Speed Tuning (₹7,999 – ₹14,999)</option>
+                        <option>Revenue Maximizer CRO Audit (₹12,999 – ₹24,999)</option>
                       </select>
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                        Estimated Budget
+                        Estimated Budget (₹ INR)
                       </label>
                       <select
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400"
                       >
-                        <option>&lt; $2,500</option>
-                        <option>$2,500 - $5,000</option>
-                        <option>$5,000 - $10,000</option>
-                        <option>$10,000+</option>
+                        <option>&lt; ₹6,000 (Starter)</option>
+                        <option>₹6,000 – ₹15,000 (Business Showcase / Booking)</option>
+                        <option>₹15,000 – ₹30,000 (Custom Web &amp; Growth)</option>
+                        <option>₹30,000 – ₹60,000 (Advanced SaaS / E-Commerce)</option>
+                        <option>₹60,000+ (Enterprise Platform)</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Project Goals & Details
+                      Project Goals &amp; Roadblocks
                     </label>
                     <textarea
                       rows={4}
-                      placeholder="Tell us about your current roadblocks, target search terms, desired timeline, or features you want to build..."
+                      placeholder="Tell us about your target audience, current page load issues, target search terms in India or globally, or features you want built..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"

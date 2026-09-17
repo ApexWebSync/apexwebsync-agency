@@ -5,25 +5,26 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://apexwebsync.vercel.app'),
-  title: 'ApexWebSync | Web Development & SEO Ranking Agency | Build Develop and Grow',
+  title: 'ApexWebSync | Web Development & SEO Ranking Agency India | Build Develop and Grow',
   description:
-    'ApexWebSync is a high-performance web development and SEO ranking agency. We engineer sub-second Next.js web applications and execute aggressive technical SEO to push your brand to Google Page 1.',
+    'ApexWebSync is an Indian high-performance web development and SEO ranking agency. We engineer sub-second Next.js web applications, digital menus, booking portals, and aggressive Google ranking strategies.',
   keywords: [
     'ApexWebSync',
-    'Web Development Agency',
-    'SEO Ranking Agency',
-    'Technical SEO Services',
-    'Next.js Web Applications',
+    'Web Development Agency India',
+    'SEO Ranking Agency India',
+    'Next.js Developers Bengaluru Mumbai',
+    'Technical SEO Services India',
+    'Digital Menu WhatsApp Ordering',
+    'Appointment Booking Web Design',
     'Core Web Vitals Optimization',
-    'Headless E-Commerce',
     'Build Develop and Grow',
   ],
-  authors: [{ name: 'ApexWebSync' }],
+  authors: [{ name: 'ApexWebSync', url: 'https://apexwebsync.vercel.app' }],
   creator: 'ApexWebSync',
   openGraph: {
-    title: 'ApexWebSync | Web Development & SEO Ranking Agency',
+    title: 'ApexWebSync | Web Development & SEO Ranking Agency India',
     description:
-      'We engineer websites that dominate search results and convert visitors. Slogan: Build Develop and Grow.',
+      'We engineer websites that dominate search results and convert visitors. Slogan: Build Develop and Grow. Contact: apexwebsync@gmail.com',
     url: 'https://apexwebsync.vercel.app',
     siteName: 'ApexWebSync',
     images: [
@@ -34,14 +35,14 @@ export const metadata: Metadata = {
         alt: 'ApexWebSync Logo',
       },
     ],
-    locale: 'en_US',
+    locale: 'en_IN',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ApexWebSync | Web Development & SEO Ranking Agency',
     description:
-      'High-performance Next.js web engineering and Google search ranking domination.',
+      'High-performance Next.js web engineering and Google search ranking domination in India and worldwide.',
     images: ['/logo.png'],
   },
   icons: {
@@ -63,19 +64,24 @@ export default function RootLayout({
     image: 'https://apexwebsync.vercel.app/logo.png',
     url: 'https://apexwebsync.vercel.app',
     slogan: 'Build Develop and Grow',
+    email: 'apexwebsync@gmail.com',
+    telephone: '+919876543210',
     description:
       'Elite web development and SEO ranking agency delivering sub-second web experiences and top Google rankings.',
-    priceRange: '$$$',
+    priceRange: '₹3,499 - ₹89,999',
     address: {
       '@type': 'PostalAddress',
-      addressCountry: 'US',
+      addressCountry: 'IN',
+      addressRegion: 'Karnataka',
+      addressLocality: 'Bengaluru',
     },
+    areaServed: ['IN', 'US', 'GB', 'AE', 'Worldwide'],
     knowsAbout: [
-      'Web Development',
+      'Next.js Web Development',
       'Search Engine Optimization',
       'Core Web Vitals',
-      'Next.js',
       'Full-Stack Architecture',
+      'E-Commerce & Digital Menus',
     ],
   };
 

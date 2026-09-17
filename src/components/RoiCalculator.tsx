@@ -1,18 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import { DollarSign, Users, TrendingUp, Sparkles, ArrowRight, Percent } from 'lucide-react';
+import Link from 'next/link';
+import { Users, TrendingUp, Sparkles, ArrowRight, Percent, IndianRupee } from 'lucide-react';
 
 export default function RoiCalculator() {
   const [traffic, setTraffic] = useState(10000);
-  const [dealValue, setDealValue] = useState(300);
+  const [dealValue, setDealValue] = useState(3500); // in INR
   const [conversionRate, setConversionRate] = useState(1.5);
 
   // Calculations
-  const currentMonthlyLeads = (traffic * (conversionRate / 100));
+  const currentMonthlyLeads = traffic * (conversionRate / 100);
   const currentMonthlyRevenue = currentMonthlyLeads * dealValue;
 
-  // With ApexWebSync (conservative estimates based on SEO ranking + sub-second speed)
+  // With ApexWebSync (India market calibrated)
   const trafficMultiplier = 2.8; // +180% organic SEO lift
   const crMultiplier = 1.6; // +60% conversion rate from Next.js sub-second speed & UX
 
@@ -24,10 +25,10 @@ export default function RoiCalculator() {
   const additionalMonthlyRevenue = Math.max(0, projectedMonthlyRevenue - currentMonthlyRevenue);
   const additionalAnnualRevenue = additionalMonthlyRevenue * 12;
 
-  const formatCurrency = (val: number) => {
-    return new Intl.NumberFormat('en-US', {
+  const formatINR = (val: number) => {
+    return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'INR',
       maximumFractionDigits: 0,
     }).format(val);
   };
@@ -38,13 +39,13 @@ export default function RoiCalculator() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
             <TrendingUp className="w-3.5 h-3.5" />
-            ROI & Revenue Projection
+            ROI &amp; Revenue Projection (₹ INR)
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
             Calculate Your <span className="text-[#00d2ff]">Growth Potential</span>
           </h2>
           <p className="mt-4 text-slate-300 text-base sm:text-lg">
-            See the compounding revenue impact of dominating top Google rankings combined with a sub-second, high-converting Next.js web application.
+            See the direct financial returns of dominating top Google rankings in India paired with an ultra-fast Next.js web application.
           </p>
         </div>
 
@@ -62,7 +63,7 @@ export default function RoiCalculator() {
                     Current Monthly Website Visitors
                   </label>
                   <span className="font-mono font-bold text-cyan-300 text-base">
-                    {traffic.toLocaleString()}
+                    {traffic.toLocaleString('en-IN')}
                   </span>
                 </div>
                 <input
@@ -77,7 +78,7 @@ export default function RoiCalculator() {
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                   <span>1,000/mo</span>
                   <span>50,000/mo</span>
-                  <span>100,000/mo</span>
+                  <span>1,00,000/mo</span>
                 </div>
               </div>
 
@@ -85,26 +86,26 @@ export default function RoiCalculator() {
               <div>
                 <div className="flex justify-between items-center mb-2">
                   <label className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-                    <DollarSign className="w-4 h-4 text-emerald-400" />
-                    Average Customer / Contract Value
+                    <IndianRupee className="w-4 h-4 text-emerald-400" />
+                    Average Order / Customer Value (₹ INR)
                   </label>
                   <span className="font-mono font-bold text-emerald-300 text-base">
-                    {formatCurrency(dealValue)}
+                    {formatINR(dealValue)}
                   </span>
                 </div>
                 <input
                   type="range"
-                  min={50}
-                  max={5000}
-                  step={50}
+                  min={500}
+                  max={50000}
+                  step={500}
                   value={dealValue}
                   onChange={(e) => setDealValue(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1">
-                  <span>$50</span>
-                  <span>$2,500</span>
-                  <span>$5,000+</span>
+                  <span>₹500</span>
+                  <span>₹25,000</span>
+                  <span>₹50,000+</span>
                 </div>
               </div>
 
@@ -139,7 +140,7 @@ export default function RoiCalculator() {
             <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
               <span>Current Monthly Revenue:</span>
               <span className="font-mono font-bold text-white text-sm">
-                {formatCurrency(currentMonthlyRevenue)}
+                {formatINR(currentMonthlyRevenue)}
               </span>
             </div>
           </div>
@@ -161,13 +162,13 @@ export default function RoiCalculator() {
 
               <div className="mt-6">
                 <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                  Estimated New Annual Revenue
+                  Estimated Additional Annual Revenue
                 </span>
-                <div className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-blue-400 tracking-tight mt-1">
-                  +{formatCurrency(additionalAnnualRevenue)}
+                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-blue-400 tracking-tight mt-1">
+                  +{formatINR(additionalAnnualRevenue)}
                 </div>
                 <div className="text-xs text-slate-300 mt-1">
-                  or <span className="text-emerald-400 font-bold">+{formatCurrency(additionalMonthlyRevenue)}</span> / month added pipeline
+                  or <span className="text-emerald-400 font-bold">+{formatINR(additionalMonthlyRevenue)}</span> / month added pipeline
                 </div>
               </div>
 
@@ -175,7 +176,8 @@ export default function RoiCalculator() {
                 <div className="flex justify-between items-center">
                   <span className="text-slate-400">Projected Traffic (SEO Lift):</span>
                   <span className="font-mono font-bold text-white">
-                    {Math.round(projectedTraffic).toLocaleString()} <span className="text-cyan-400 text-xs">(+180%)</span>
+                    {Math.round(projectedTraffic).toLocaleString('en-IN')}{' '}
+                    <span className="text-cyan-400 text-xs">(+180%)</span>
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
@@ -185,22 +187,22 @@ export default function RoiCalculator() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-400">Monthly Conversions / Deals:</span>
+                  <span className="text-slate-400">Monthly Conversions / Orders:</span>
                   <span className="font-mono font-bold text-emerald-400">
-                    {Math.round(projectedMonthlyLeads).toLocaleString()} clients
+                    {Math.round(projectedMonthlyLeads).toLocaleString('en-IN')} clients
                   </span>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 pt-6">
-              <a
-                href="#contact"
+              <Link
+                href="/pricing"
                 className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#00d2ff] to-[#2563eb] hover:from-[#38bdf8] hover:to-[#1d4ed8] text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-cyan-500/20"
               >
-                <span>Unlock This Growth</span>
+                <span>View Matching Packages</span>
                 <ArrowRight className="w-4 h-4 text-slate-950" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

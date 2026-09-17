@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUp, Github, Linkedin, Twitter, Sparkles, Shield, Database, Cloud } from 'lucide-react';
+import { Mail, Phone, MessageCircle, MapPin, Database, Cloud, Sparkles, Lock } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="bg-[#05070d] border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
-      {/* Glow Effect */}
+      {/* Subtle Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-48 bg-gradient-to-t from-cyan-500/5 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,106 +35,147 @@ export default function Footer() {
             </Link>
 
             <p className="mt-4 text-xs text-slate-400 max-w-sm leading-relaxed">
-              ApexWebSync is a high-performance web development and search engine optimization agency. We build bespoke Next.js web applications and execute aggressive SEO campaigns to scale revenue.
+              ApexWebSync is an Indian web development and SEO ranking agency. We engineer sub-second Next.js web applications, digital menus, appointment portals, and high-converting search strategies for modern brands.
             </p>
 
-            <div className="mt-6 flex items-center gap-3 text-xs text-slate-400">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-900 border border-white/5 font-mono text-[11px] text-cyan-300">
-                <Database className="w-3 h-3 text-cyan-400" /> Neon PostgreSQL
+            {/* Direct Contacts */}
+            <div className="mt-5 space-y-2 text-xs text-slate-300">
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <a href="mailto:apexwebsync@gmail.com" className="hover:text-cyan-400 font-mono">
+                  apexwebsync@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <a
+                  href="https://wa.me/919876543210?text=Hello%20ApexWebSync"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400"
+                >
+                  WhatsApp: +91 98765 43210
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-slate-400">
+                <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span>India Tech Hub &bull; Serving Pan-India &amp; Global Clients</span>
+              </div>
+            </div>
+
+            <div className="mt-6 flex items-center gap-2.5 text-[11px] text-slate-400">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900 border border-white/5 font-mono text-cyan-300">
+                <Database className="w-3 h-3 text-cyan-400" /> Neon Postgres
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-900 border border-white/5 font-mono text-[11px] text-cyan-300">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900 border border-white/5 font-mono text-cyan-300">
                 <Cloud className="w-3 h-3 text-cyan-400" /> S3 Cloud
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-900 border border-white/5 font-mono text-[11px] text-cyan-300">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900 border border-white/5 font-mono text-cyan-300">
                 <Sparkles className="w-3 h-3 text-cyan-400" /> Vercel Edge
               </span>
             </div>
           </div>
 
-          {/* Column 1: Services */}
+          {/* Quick Pages */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Services
+              Website Pages
             </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
+            <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <a href="#services" className="hover:text-cyan-400 transition-colors">
-                  Next.js Web Development
-                </a>
+                <Link href="/" className="hover:text-cyan-400 transition-colors">
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-cyan-400 transition-colors">
-                  Technical SEO Optimization
-                </a>
+                <Link href="/services" className="hover:text-cyan-400 transition-colors">
+                  Our Services
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-cyan-400 transition-colors">
-                  Core Web Vitals 100/100
-                </a>
+                <Link href="/pricing" className="hover:text-cyan-400 transition-colors">
+                  Pricing &amp; Packages (₹ INR)
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-cyan-400 transition-colors">
-                  Headless E-Commerce
-                </a>
+                <Link href="/audit" className="hover:text-cyan-400 transition-colors">
+                  Free SEO &amp; Speed Audit
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-cyan-400 transition-colors">
-                  Conversion Rate Optimization
-                </a>
+                <Link href="/about" className="hover:text-cyan-400 transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-cyan-400 transition-colors">
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 2: Free Tools */}
+          {/* Packages */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Growth Tools
+              Popular Packages
             </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
+            <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <a href="#audit" className="hover:text-cyan-400 transition-colors">
-                  Live Free SEO Audit
-                </a>
+                <Link href="/pricing" className="hover:text-cyan-400 transition-colors">
+                  Starter Landing Page (₹3,499)
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="hover:text-cyan-400 transition-colors">
+                  Business Showcase (₹8,999)
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="hover:text-cyan-400 transition-colors">
+                  Appointment &amp; Booking Site
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="hover:text-cyan-400 transition-colors">
+                  Digital Menu &amp; WhatsApp Order
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="hover:text-cyan-400 transition-colors">
+                  Page 1 SEO Supremacy
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="hover:text-cyan-400 transition-colors">
+                  Custom Next.js Web App
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Admin & Legal */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
+              Management
+            </h4>
+            <ul className="space-y-2 text-xs text-slate-400">
+              <li>
+                <Link href="/admin" className="text-cyan-400 hover:underline flex items-center gap-1">
+                  <Lock className="w-3 h-3" />
+                  Admin Portal Login
+                </Link>
               </li>
               <li>
                 <a href="#calculator" className="hover:text-cyan-400 transition-colors">
-                  Revenue Growth Calculator
-                </a>
-              </li>
-              <li>
-                <a href="#cases" className="hover:text-cyan-400 transition-colors">
-                  Case Studies & Metrics
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-cyan-400 transition-colors">
-                  Pricing & Packages
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Contact & Legal */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Company
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li>
-                <a href="#about" className="hover:text-cyan-400 transition-colors">
-                  About ApexWebSync
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-cyan-400 transition-colors">
-                  Schedule Consultation
+                  ROI Growth Calculator
                 </a>
               </li>
               <li>
                 <span className="text-slate-500 cursor-not-allowed">Privacy Policy</span>
               </li>
               <li>
-                <span className="text-slate-500 cursor-not-allowed">Terms of Service</span>
+                <span className="text-slate-500 cursor-not-allowed">Terms of Engagement</span>
               </li>
             </ul>
           </div>
@@ -143,14 +184,15 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            © {new Date().getFullYear()} ApexWebSync. All rights reserved. &bull;{' '}
+            &copy; {new Date().getFullYear()} ApexWebSync India. All rights reserved. &bull;{' '}
             <span className="text-slate-400">Slogan: Build Develop and Grow</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
+            <span className="text-slate-400">Contact: apexwebsync@gmail.com</span>
             <span className="flex items-center gap-1.5 text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              Systems 100% Operational
+              Pan-India Support Online
             </span>
           </div>
         </div>
