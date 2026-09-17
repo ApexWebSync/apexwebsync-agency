@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { Users, TrendingUp, Sparkles, ArrowRight, Percent, IndianRupee } from 'lucide-react';
 
 export default function RoiCalculator() {
-  const [traffic, setTraffic] = useState(10000);
-  const [dealValue, setDealValue] = useState(3500); // in INR
-  const [conversionRate, setConversionRate] = useState(1.5);
+  const [traffic, setTraffic] = useState(0);
+  const [dealValue, setDealValue] = useState(0);
+  const [conversionRate, setConversionRate] = useState(0);
 
   // Calculations
   const currentMonthlyLeads = traffic * (conversionRate / 100);
@@ -17,9 +17,11 @@ export default function RoiCalculator() {
   const trafficMultiplier = 2.8; // +180% organic SEO lift
   const crMultiplier = 1.6; // +60% conversion rate from Next.js sub-second speed & UX
 
-  const projectedTraffic = traffic * trafficMultiplier;
-  const projectedCr = Math.min(6.5, conversionRate * crMultiplier);
-  const projectedMonthlyLeads = projectedTraffic * (projectedCr / 100);
+  const isNewSite = traffic === 0;
+  const projectedTraffic = traffic > 0 ? Math.round(traffic * trafficMultiplier) : (dealValue > 0 ? 1200 : 0);
+  const effectiveCr = conversionRate > 0 ? conversionRate : 1.5;
+  const projectedCr = Math.min(6.5, Number((effectiveCr * crMultiplier).toFixed(1)));
+  const projectedMonthlyLeads = Math.round(projectedTraffic * (projectedCr / 100));
   const projectedMonthlyRevenue = projectedMonthlyLeads * dealValue;
 
   const additionalMonthlyRevenue = Math.max(0, projectedMonthlyRevenue - currentMonthlyRevenue);
@@ -52,7 +54,21 @@ export default function RoiCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-6xl mx-auto">
           {/* Sliders Box */}
           <div className="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
-            <h3 className="text-xl font-bold text-slate-900 mb-6">Your Current Baseline Metrics</h3>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-slate-900">Your Current Baseline Metrics</h3>
+              {(traffic > 0 || dealValue > 0 || conversionRate > 0) && (
+                <button
+                  onClick={() => {
+                    setTraffic(0);
+                    setDealValue(0);
+                    setConversionRate(0);
+                  }}
+                  className="text-xs font-semibold text-slate-400 hover:text-[#0284c7] transition-colors"
+                >
+                  Reset to 0
+                </button>
+              )}
+            </div>
 
             <div className="space-y-8">
               {/* Slider 1: Traffic */}
@@ -68,15 +84,15 @@ export default function RoiCalculator() {
                 </div>
                 <input
                   type="range"
-                  min={1000}
+                  min={0}
                   max={100000}
-                  step={1000}
+                  step={500}
                   value={traffic}
                   onChange={(e) => setTraffic(Number(e.target.value))}
                   className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0284c7]"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1">
-                  <span>1,000/mo</span>
+                  <span>0/mo</span>
                   <span>50,000/mo</span>
                   <span>1,00,000/mo</span>
                 </div>
@@ -95,15 +111,15 @@ export default function RoiCalculator() {
                 </div>
                 <input
                   type="range"
-                  min={500}
+                  min={0}
                   max={50000}
-                  step={500}
+                  step={250}
                   value={dealValue}
                   onChange={(e) => setDealValue(Number(e.target.value))}
                   className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1">
-                  <span>₹500</span>
+                  <span>₹0</span>
                   <span>₹25,000</span>
                   <span>₹50,000+</span>
                 </div>
@@ -122,7 +138,7 @@ export default function RoiCalculator() {
                 </div>
                 <input
                   type="range"
-                  min={0.5}
+                  min={0}
                   max={5.0}
                   step={0.1}
                   value={conversionRate}
@@ -130,8 +146,8 @@ export default function RoiCalculator() {
                   className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1">
-                  <span>0.5% (Low)</span>
-                  <span>2.0% (Average)</span>
+                  <span>0.0%</span>
+                  <span>2.5% (Average)</span>
                   <span>5.0% (High)</span>
                 </div>
               </div>
@@ -177,13 +193,18 @@ export default function RoiCalculator() {
                   <span className="text-slate-400">Projected Traffic (SEO Lift):</span>
                   <span className="font-mono font-bold text-white">
                     {Math.round(projectedTraffic).toLocaleString('en-IN')}{' '}
-                    <span className="text-cyan-400 text-xs">(+180%)</span>
+                    <span className="text-cyan-400 text-xs">
+                      {isNewSite ? (dealValue > 0 ? '(New Launch)' : '(+180%)') : '(+180%)'}
+                    </span>
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-slate-400">Projected Conversion Rate:</span>
                   <span className="font-mono font-bold text-white">
-                    {projectedCr.toFixed(1)}% <span className="text-cyan-400 text-xs">(+60%)</span>
+                    {conversionRate === 0 && dealValue === 0 ? '0.0%' : `${projectedCr.toFixed(1)}%`}{' '}
+                    <span className="text-cyan-400 text-xs">
+                      {conversionRate > 0 ? '(+60%)' : '(Optimized UX)'}
+                    </span>
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
