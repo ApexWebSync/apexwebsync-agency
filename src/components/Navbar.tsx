@@ -8,7 +8,10 @@ import { Menu, X, ArrowUpRight, Zap, MessageCircle, Lock, Sparkles } from 'lucid
 
 interface SiteSettings {
   announcement_banner?: string;
-  announcement_enabled?: boolean;
+  announcement_enabled?: boolean | string;
+  offer_badge?: string;
+  offer_coupon?: string;
+  offer_link?: string;
   whatsapp_number?: string;
 }
 
@@ -46,13 +49,33 @@ export default function Navbar() {
 
   const waNumber = settings.whatsapp_number?.replace(/[^0-9]/g, '') || '919876543210';
 
+  const isBannerVisible =
+    settings.announcement_enabled === true || settings.announcement_enabled === 'true';
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top Announcement Banner */}
-      {settings.announcement_enabled && settings.announcement_banner && (
-        <div className="bg-gradient-to-r from-[#00b4d8] via-[#0284c7] to-[#2563eb] text-white py-1.5 px-4 text-center text-[11px] font-bold tracking-wide flex items-center justify-center gap-2 shadow-sm">
-          <Sparkles className="w-3 h-3 fill-current" />
-          <span>{settings.announcement_banner}</span>
+      {/* Top Announcement & Offer Banner */}
+      {isBannerVisible && settings.announcement_banner && (
+        <div className="bg-gradient-to-r from-[#00b4d8] via-[#0284c7] to-[#2563eb] text-white py-1.5 px-4 text-center text-[11px] font-bold tracking-wide flex flex-wrap items-center justify-center gap-2 shadow-sm">
+          {settings.offer_badge && (
+            <span className="px-2 py-0.5 rounded-full bg-white/20 text-white font-extrabold uppercase tracking-widest text-[9px] border border-white/30">
+              {settings.offer_badge}
+            </span>
+          )}
+          <span className="truncate max-w-xl">{settings.announcement_banner}</span>
+          {settings.offer_coupon && (
+            <span className="px-2 py-0.5 rounded bg-black/25 text-cyan-200 font-mono text-[10px] tracking-wider border border-white/20">
+              USE CODE: {settings.offer_coupon}
+            </span>
+          )}
+          {settings.offer_link && (
+            <Link
+              href={settings.offer_link}
+              className="underline underline-offset-2 hover:text-cyan-200 text-[11px] font-extrabold ml-1 transition-colors"
+            >
+              Claim &rarr;
+            </Link>
+          )}
         </div>
       )}
 

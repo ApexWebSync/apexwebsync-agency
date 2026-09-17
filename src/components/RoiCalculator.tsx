@@ -34,35 +34,35 @@ export default function RoiCalculator() {
   };
 
   return (
-    <section id="calculator" className="py-24 relative overflow-hidden bg-slate-950/60 border-y border-white/5">
+    <section id="calculator" className="py-24 relative overflow-hidden bg-slate-50/70 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-[#0284c7] text-xs font-semibold uppercase tracking-wider mb-4">
             <TrendingUp className="w-3.5 h-3.5" />
             ROI &amp; Revenue Projection (₹ INR)
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Calculate Your <span className="text-[#00d2ff]">Growth Potential</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Calculate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00b4d8] via-[#0284c7] to-[#2563eb]">Growth Potential</span>
           </h2>
-          <p className="mt-4 text-slate-300 text-base sm:text-lg">
+          <p className="mt-4 text-slate-600 text-base sm:text-lg">
             See the direct financial returns of dominating top Google rankings in India paired with an ultra-fast Next.js web application.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-6xl mx-auto">
           {/* Sliders Box */}
-          <div className="lg:col-span-7 p-6 sm:p-8 rounded-3xl glass-card border border-white/10 flex flex-col justify-between">
-            <h3 className="text-xl font-bold text-white mb-6">Your Current Baseline Metrics</h3>
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <h3 className="text-xl font-bold text-slate-900 mb-6">Your Current Baseline Metrics</h3>
 
             <div className="space-y-8">
               {/* Slider 1: Traffic */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-                    <Users className="w-4 h-4 text-cyan-400" />
+                  <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                    <Users className="w-4 h-4 text-[#0284c7]" />
                     Current Monthly Website Visitors
                   </label>
-                  <span className="font-mono font-bold text-cyan-300 text-base">
+                  <span className="font-mono font-bold text-[#0284c7] text-base">
                     {traffic.toLocaleString('en-IN')}
                   </span>
                 </div>
@@ -73,7 +73,7 @@ export default function RoiCalculator() {
                   step={1000}
                   value={traffic}
                   onChange={(e) => setTraffic(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#00d2ff]"
+                  className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0284c7]"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                   <span>1,000/mo</span>
@@ -85,11 +85,11 @@ export default function RoiCalculator() {
               {/* Slider 2: Deal Value */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-                    <IndianRupee className="w-4 h-4 text-emerald-400" />
+                  <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                    <IndianRupee className="w-4 h-4 text-emerald-600" />
                     Average Order / Customer Value (₹ INR)
                   </label>
-                  <span className="font-mono font-bold text-emerald-300 text-base">
+                  <span className="font-mono font-bold text-emerald-700 text-base">
                     {formatINR(dealValue)}
                   </span>
                 </div>
@@ -100,7 +100,7 @@ export default function RoiCalculator() {
                   step={500}
                   value={dealValue}
                   onChange={(e) => setDealValue(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
+                  className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                   <span>₹500</span>
@@ -112,11 +112,11 @@ export default function RoiCalculator() {
               {/* Slider 3: Conversion Rate */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-                    <Percent className="w-4 h-4 text-blue-400" />
+                  <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+                    <Percent className="w-4 h-4 text-blue-600" />
                     Current Conversion Rate
                   </label>
-                  <span className="font-mono font-bold text-blue-300 text-base">
+                  <span className="font-mono font-bold text-blue-600 text-base">
                     {conversionRate.toFixed(1)}%
                   </span>
                 </div>
@@ -127,7 +127,7 @@ export default function RoiCalculator() {
                   step={0.1}
                   value={conversionRate}
                   onChange={(e) => setConversionRate(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-400"
+                  className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                 />
                 <div className="flex justify-between text-[11px] text-slate-500 mt-1">
                   <span>0.5% (Low)</span>
@@ -137,9 +137,9 @@ export default function RoiCalculator() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+            <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
               <span>Current Monthly Revenue:</span>
-              <span className="font-mono font-bold text-white text-sm">
+              <span className="font-mono font-bold text-slate-900 text-sm">
                 {formatINR(currentMonthlyRevenue)}
               </span>
             </div>
@@ -198,10 +198,10 @@ export default function RoiCalculator() {
             <div className="mt-8 pt-6">
               <Link
                 href="/pricing"
-                className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#00d2ff] to-[#2563eb] hover:from-[#38bdf8] hover:to-[#1d4ed8] text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-cyan-500/20"
+                className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#00b4d8] to-[#2563eb] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20"
               >
                 <span>View Matching Packages</span>
-                <ArrowRight className="w-4 h-4 text-slate-950" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </Link>
             </div>
           </div>

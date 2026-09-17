@@ -149,6 +149,23 @@ const technicalAddOns = [
 
 export default function PricingPage() {
   const [pricingMode, setPricingMode] = useState<'turnkey' | 'standard'>('turnkey');
+  const [packages, setPackages] = useState(standardPackages);
+  const [services, setServices] = useState(engineeringServices);
+  const [addOns, setAddOns] = useState(technicalAddOns);
+
+  useState(() => {
+    // Check dynamic pricing
+    fetch('/api/pricing')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.pricing) {
+          if (data.pricing.standardPackages) setPackages(data.pricing.standardPackages);
+          if (data.pricing.engineeringServices) setServices(data.pricing.engineeringServices);
+          if (data.pricing.technicalAddOns) setAddOns(data.pricing.technicalAddOns);
+        }
+      })
+      .catch(() => {});
+  });
 
   const getWhatsAppLink = (pkgName: string) => {
     const text = encodeURIComponent(
@@ -231,7 +248,7 @@ export default function PricingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {standardPackages.map((pkg, idx) => (
+            {packages.map((pkg, idx) => (
               <div
                 key={idx}
                 className={`p-6 sm:p-7 rounded-3xl flex flex-col justify-between relative transition-all duration-300 bg-white ${
@@ -316,7 +333,7 @@ export default function PricingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {engineeringServices.map((eng, idx) => (
+            {services.map((eng, idx) => (
               <div
                 key={idx}
                 className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-cyan-400 shadow-sm hover:shadow-md flex flex-col justify-between transition-all duration-300"
@@ -389,8 +406,8 @@ export default function PricingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {technicalAddOns.map((addon, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {addOns.map((addon, idx) => (
               <div
                 key={idx}
                 className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between hover:border-cyan-400 transition-all"

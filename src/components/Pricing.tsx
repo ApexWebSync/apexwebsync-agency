@@ -56,7 +56,42 @@ const plans = [
   },
 ];
 
+import { useEffect, useState } from 'react';
+
 export default function Pricing() {
+  const [displayPlans, setDisplayPlans] = useState(plans);
+
+  useEffect(() => {
+    fetch('/api/pricing')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.pricing?.standardPackages) {
+          const pkgs = data.pricing.standardPackages;
+          const starter = pkgs[0];
+          const showcase = pkgs[1] || pkgs[0];
+          const customEng = data.pricing.engineeringServices?.[0];
+
+          setDisplayPlans([
+            {
+              ...plans[0],
+              price: starter?.clientHostPrice ? starter.clientHostPrice.split('–')[0].trim() : plans[0].price,
+              frequency: starter?.turnkeyPrice ? `turnkey ${starter.turnkeyPrice.split('–')[0].trim()} with domain & cloud` : plans[0].frequency,
+            },
+            {
+              ...plans[1],
+              price: showcase?.clientHostPrice ? showcase.clientHostPrice.split('–')[0].trim() : plans[1].price,
+              frequency: showcase?.turnkeyPrice ? `turnkey ${showcase.turnkeyPrice.split('–')[0].trim()} with domain & cloud` : plans[1].frequency,
+            },
+            {
+              ...plans[2],
+              price: customEng?.price ? customEng.price.split('–')[0].trim() : plans[2].price,
+            },
+          ]);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <section id="pricing" className="py-24 relative overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,7 +111,7 @@ export default function Pricing() {
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-          {plans.map((plan, index) => (
+          {displayPlans.map((plan, index) => (
             <div
               key={index}
               className={`p-8 sm:p-10 rounded-3xl flex flex-col justify-between relative transition-all duration-300 ${

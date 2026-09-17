@@ -27,11 +27,18 @@ export async function GET() {
 
     const settings = await getAllSiteSettings();
 
+    const referrals = await sql`
+      SELECT id, code, referrer_name, contact_info, commission_type, commission_value, discount_value, status, usage_count, notes, created_at
+      FROM referral_codes
+      ORDER BY created_at DESC;
+    `;
+
     return NextResponse.json({
       success: true,
       leads,
       audits,
       settings,
+      referrals,
     });
   } catch (error: unknown) {
     const err = error as Error;

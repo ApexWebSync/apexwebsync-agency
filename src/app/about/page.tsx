@@ -14,22 +14,22 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-[#0284c7] text-xs font-semibold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             Our Mission &amp; Ethos
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
-            Build, Develop and <span className="text-[#00d2ff]">Grow</span>
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight">
+            Build, Develop and <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00b4d8] via-[#0284c7] to-[#2563eb]">Grow</span>
           </h1>
-          <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+          <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
             ApexWebSync was founded with a singular conviction: businesses shouldn&apos;t have to choose between a visually stunning design and a lightning-fast, high-ranking search presence.
           </p>
         </div>
 
         {/* Story Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-          <div className="lg:col-span-6 space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+          <div className="lg:col-span-6 space-y-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
               Engineering Excellence from India for the World
             </h2>
             <p>
@@ -43,24 +43,24 @@ export default function AboutPage() {
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">
-              <div className="p-4 rounded-2xl glass-card border border-white/5 flex-1 min-w-[140px]">
-                <div className="text-2xl font-extrabold text-[#00d2ff]">100%</div>
-                <div className="text-xs text-slate-400 mt-1">In-House Engineers</div>
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex-1 min-w-[140px]">
+                <div className="text-2xl font-extrabold text-[#0284c7]">100%</div>
+                <div className="text-xs text-slate-500 mt-1">In-House Engineers</div>
               </div>
-              <div className="p-4 rounded-2xl glass-card border border-white/5 flex-1 min-w-[140px]">
-                <div className="text-2xl font-extrabold text-emerald-400">&lt; 0.4s</div>
-                <div className="text-xs text-slate-400 mt-1">Target Server TTFB</div>
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex-1 min-w-[140px]">
+                <div className="text-2xl font-extrabold text-emerald-600">&lt; 0.4s</div>
+                <div className="text-xs text-slate-500 mt-1">Target Server TTFB</div>
               </div>
-              <div className="p-4 rounded-2xl glass-card border border-white/5 flex-1 min-w-[140px]">
-                <div className="text-2xl font-extrabold text-cyan-300">24/7</div>
-                <div className="text-xs text-slate-400 mt-1">Direct WhatsApp Support</div>
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex-1 min-w-[140px]">
+                <div className="text-2xl font-extrabold text-blue-600">24/7</div>
+                <div className="text-xs text-slate-500 mt-1">Direct WhatsApp Support</div>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-md aspect-square rounded-3xl p-1 bg-gradient-to-tr from-[#00d2ff] via-[#3a7bd5] to-[#2563eb] shadow-2xl shadow-cyan-500/20">
-              <div className="w-full h-full bg-[#070a12] rounded-[22px] flex items-center justify-center p-8 overflow-hidden">
+            <div className="relative w-full max-w-md aspect-square rounded-3xl p-1 bg-gradient-to-tr from-[#00b4d8] via-[#0284c7] to-[#2563eb] shadow-xl shadow-cyan-500/15">
+              <div className="w-full h-full bg-slate-900 rounded-[22px] flex items-center justify-center p-8 overflow-hidden">
                 <Image
                   src="/logo.png"
                   alt="ApexWebSync Logo Emblem"
@@ -75,39 +75,39 @@ export default function AboutPage() {
 
         {/* 3 Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          <div className="p-8 rounded-3xl glass-card border border-white/10">
-            <div className="w-12 h-12 rounded-2xl bg-[#0b1120] border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6">
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 flex items-center justify-center text-[#0284c7] mb-6">
               <Compass className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">1. Build</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">1. Build</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
               We architect solid digital foundations. Every codebase is typed, modular, responsive, and stripped of unnecessary bloat.
             </p>
           </div>
 
-          <div className="p-8 rounded-3xl glass-card border border-white/10">
-            <div className="w-12 h-12 rounded-2xl bg-[#0b1120] border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6">
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 mb-6">
               <HeartHandshake className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">2. Develop</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">2. Develop</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
               We craft high-converting user journeys, seamless checkout flows, serverless database interactions, and frictionless appointments.
             </p>
           </div>
 
-          <div className="p-8 rounded-3xl glass-card border border-white/10">
-            <div className="w-12 h-12 rounded-2xl bg-[#0b1120] border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-6">
               <Users className="w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">3. Grow</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">3. Grow</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
               We push your business to Google&apos;s Page 1. Relentless technical and semantic search optimization that captures customer demand.
             </p>
           </div>
         </div>
 
         {/* CTA Banner */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#0d1c38] to-[#070a12] border-2 border-cyan-500/40 text-center max-w-4xl mx-auto shadow-2xl">
+        <div className="p-8 sm:p-12 rounded-3xl bg-slate-900 border border-slate-800 text-center max-w-4xl mx-auto shadow-xl">
           <h2 className="text-3xl font-extrabold text-white">
             Ready to partner with ApexWebSync?
           </h2>
@@ -117,7 +117,7 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/pricing"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#00d2ff] to-[#2563eb] text-slate-950 font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#00b4d8] to-[#2563eb] text-white font-bold text-xs uppercase tracking-wider hover:opacity-95 shadow-md shadow-cyan-500/20 transition-all"
             >
               View Transparent Packages
             </Link>
