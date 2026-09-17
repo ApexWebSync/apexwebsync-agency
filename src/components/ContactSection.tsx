@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Loader2, UploadCloud, MessageSquare, Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2, UploadCloud, MessageSquare, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -68,33 +68,33 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden bg-slate-50/70 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column Info */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-[#0284c7] text-xs font-semibold uppercase tracking-wider mb-4">
                 <MessageSquare className="w-3.5 h-3.5" />
                 Start Your Project
               </div>
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Let&apos;s Build, Develop and <span className="text-[#00d2ff]">Grow Your Business</span>
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Let&apos;s Build, Develop and <span className="text-[#0284c7]">Grow Your Business</span>
               </h2>
-              <p className="mt-4 text-slate-300 text-base leading-relaxed">
+              <p className="mt-4 text-slate-600 text-base leading-relaxed">
                 Ready to dominate search rankings and engineer a web application that outpaces the competition? Schedule a consultation or message our team on WhatsApp.
               </p>
 
-              <div className="mt-10 space-y-6">
+              <div className="mt-10 space-y-5">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0b1120] border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-[#0284c7] shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">Email Us Directly</div>
+                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wider">Email Us Directly</div>
                     <a
                       href="mailto:apexwebsync@gmail.com"
-                      className="text-white font-semibold text-sm sm:text-base hover:text-cyan-400 transition-colors font-mono"
+                      className="text-slate-900 font-bold text-sm sm:text-base hover:text-[#0284c7] transition-colors font-mono"
                     >
                       apexwebsync@gmail.com
                     </a>
@@ -102,16 +102,16 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0b1120] border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 shadow-sm flex items-center justify-center text-emerald-600 shrink-0">
                     <MessageCircle className="w-5 h-5 fill-current" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">WhatsApp Direct (+91)</div>
+                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wider">WhatsApp Direct (+91)</div>
                     <a
                       href="https://wa.me/919876543210?text=Hello%20ApexWebSync%20Team"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white font-semibold text-sm sm:text-base hover:text-emerald-400 transition-colors"
+                      className="text-slate-900 font-bold text-sm sm:text-base hover:text-emerald-600 transition-colors"
                     >
                       +91 98765 43210
                     </a>
@@ -119,12 +119,12 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0b1120] border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-[#0284c7] shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">India Tech Hub</div>
-                    <div className="text-white font-semibold text-sm sm:text-base">
+                    <div className="text-xs text-slate-500 font-medium uppercase tracking-wider">India Tech Hub</div>
+                    <div className="text-slate-900 font-bold text-sm sm:text-base">
                       Bengaluru / Pan-India &bull; Global Delivery
                     </div>
                   </div>
@@ -132,11 +132,11 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div className="mt-12 p-6 rounded-2xl glass-card border border-white/5">
-              <div className="text-xs font-semibold uppercase tracking-wider text-cyan-400 mb-1">
+            <div className="mt-12 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#0284c7] mb-1">
                 Our Guarantee
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Every project is covered by our Core Web Vitals guarantee and clear milestones. Senior Indian full-stack engineers only.
               </p>
             </div>
@@ -144,19 +144,19 @@ export default function ContactSection() {
 
           {/* Right Column Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-3xl glass-card border border-white/10 shadow-2xl relative">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl relative">
               {success ? (
                 <div className="py-12 text-center flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-emerald-50 border-2 border-emerald-500 text-emerald-600 flex items-center justify-center mb-4">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Inquiry Received!</h3>
-                  <p className="mt-2 text-slate-300 text-sm max-w-md">
+                  <h3 className="text-2xl font-bold text-slate-900">Inquiry Received!</h3>
+                  <p className="mt-2 text-slate-600 text-sm max-w-md">
                     Thank you for contacting ApexWebSync. Our technical team has received your project details and will follow up with an actionable roadmap within 24 hours.
                   </p>
                   <button
                     onClick={() => setSuccess(false)}
-                    className="mt-6 px-6 py-2.5 rounded-xl bg-slate-800 text-cyan-400 text-xs font-bold uppercase tracking-wider hover:bg-slate-700"
+                    className="mt-6 px-6 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-800"
                   >
                     Send Another Message
                   </button>
@@ -165,8 +165,8 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                        Your Name <span className="text-cyan-400">*</span>
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                        Your Name <span className="text-[#0284c7]">*</span>
                       </label>
                       <input
                         type="text"
@@ -174,13 +174,13 @@ export default function ContactSection() {
                         placeholder="e.g. Rahul Sharma"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-[#0284c7] focus:ring-2 focus:ring-cyan-100"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                        Work Email <span className="text-cyan-400">*</span>
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                        Work Email <span className="text-[#0284c7]">*</span>
                       </label>
                       <input
                         type="email"
@@ -188,14 +188,14 @@ export default function ContactSection() {
                         placeholder="rahul@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-[#0284c7] focus:ring-2 focus:ring-cyan-100"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         Phone / WhatsApp (Optional)
                       </label>
                       <input
@@ -203,12 +203,12 @@ export default function ContactSection() {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-[#0284c7] focus:ring-2 focus:ring-cyan-100"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         Current Website (Optional)
                       </label>
                       <input
@@ -216,20 +216,20 @@ export default function ContactSection() {
                         placeholder="https://yourbrand.in"
                         value={formData.website}
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-[#0284c7] focus:ring-2 focus:ring-cyan-100"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         Service Interest
                       </label>
                       <select
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-[#0284c7]"
                       >
                         <option>Starter Landing Page (₹3,499 – ₹5,999)</option>
                         <option>Business Showcase (3–5 Pages) (₹8,999 – ₹14,999)</option>
@@ -244,13 +244,13 @@ export default function ContactSection() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         Estimated Budget (₹ INR)
                       </label>
                       <select
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-[#0284c7]"
                       >
                         <option>&lt; ₹6,000 (Starter)</option>
                         <option>₹6,000 – ₹15,000 (Business Showcase / Booking)</option>
@@ -262,26 +262,26 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Project Goals &amp; Roadblocks
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                      Project Goals &amp; Requirements
                     </label>
                     <textarea
                       rows={4}
                       placeholder="Tell us about your target audience, current page load issues, target search terms in India or globally, or features you want built..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#0b1120] border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-[#0284c7]"
                     />
                   </div>
 
                   {/* File Upload to S3 */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
                       Attach RFP, Brief, or Wireframe (Optional)
                     </label>
-                    <label className="flex items-center gap-3 p-3 rounded-xl bg-[#0b1120] border border-dashed border-slate-700 hover:border-cyan-400 cursor-pointer transition-all">
-                      <UploadCloud className="w-5 h-5 text-cyan-400 shrink-0" />
-                      <span className="text-xs text-slate-400 truncate">
+                    <label className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-dashed border-slate-300 hover:border-[#0284c7] cursor-pointer transition-all">
+                      <UploadCloud className="w-5 h-5 text-[#0284c7] shrink-0" />
+                      <span className="text-xs text-slate-600 truncate">
                         {file ? file.name : 'Upload PDF, DOCX, PNG, or ZIP (Max 15MB)'}
                       </span>
                       <input
@@ -297,8 +297,8 @@ export default function ContactSection() {
                   </div>
 
                   {error && (
-                    <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                    <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" />
                       <span>{error}</span>
                     </div>
                   )}
@@ -306,17 +306,17 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-[#00d2ff] via-[#38bdf8] to-[#2563eb] hover:from-[#38bdf8] hover:to-[#1d4ed8] text-slate-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-xl shadow-cyan-500/25 transition-all disabled:opacity-60 cursor-pointer"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-[#00b4d8] to-[#2563eb] hover:opacity-95 text-white font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-md shadow-cyan-500/20 transition-all disabled:opacity-60 cursor-pointer"
                   >
                     {submitting ? (
                       <>
-                        <Loader2 className="w-4 h-4 animate-spin text-slate-950" />
+                        <Loader2 className="w-4 h-4 animate-spin text-white" />
                         <span>Transmitting Inquiry...</span>
                       </>
                     ) : (
                       <>
                         <span>Submit Project Inquiry</span>
-                        <Send className="w-4 h-4 text-slate-950" />
+                        <Send className="w-4 h-4 text-white" />
                       </>
                     )}
                   </button>
